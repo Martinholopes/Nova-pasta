@@ -1,49 +1,61 @@
-<h2>List of Clients</h2>
+<hr/>
+
+<h2>Add a Clients</h2>
 
 <div>
-  <label>Client name:
+  <p>
+    <label>Client name:
     <input #clientName />
   </label>
+  </p>
 
-  <br>
-  
-  <label>Address:
+  <p>
+    <label>Address:   
     <input #clientAddress />
   </label>
-
-  <br>
+  </p>
+  
   
   <label>Postal Code:
     <input #clientPostal />
   </label>
-
-  <br>
   
-  <label>Phone Mark:
-    <input #clientMark />
-  </label>
-
-  <br>
+  <p>
+    <label>Phone Mark:
+      <input #clientMark />
+    </label>
+  </p>
   
-  <label>Operator:
-      <input #clientOperator />
-  </label>
+  <p>
+    <label>Operator:
+        <input #clientOperator />
+    </label>
+  </p>
 </div>
 
 <button (click)="add(clientName.value, clientAddress.value, clientPostal.value, clientMark.value, clientOperator.value)">
     add
 </button>
 
-<div class="List">
-  <ul class="Clients">
-    <li *ngFor="let client of clients">
+<hr/>
+
+<h2>List of Clients</h2>
+
+
+<ul class="Clients">
+  <li *ngFor="let client of clients">
   
-      <a routerLink="/detail/{{client.num_processo}}">
-        <span class="badge">{{client.num_processo}}</span> {{client.name}}
-      </a>
+    <a routerLink="/detail/{{client.num_processo}}">
+      <span class="badge">{{client.num_processo}}</span> {{client.name}}
+    </a>
   
-      <button class="delete" title="delete client"
-        (click)="delete(client)">x</button>
-    </li>
-  </ul>
-</div>
+    <button class="delete" title="delete client"
+      (click)="delete(client)">x</button>
+  </li>
+</ul>
+
+
+<hr/>
+
+<app-messages></app-messages>
+<router-outlet></router-outlet>
