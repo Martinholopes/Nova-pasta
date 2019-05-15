@@ -1,35 +1,49 @@
 <h2>List of Clients</h2>
 
 <div>
-  <label>Hero name:
-    <input #heroName />
+  <label>Client name:
+    <input #clientName />
   </label>
 
   <br>
   
-  <label>Hero Skill:
-      <select #heroSkill>
-          <option value="Archer">Archer</option>
-          <option value="Swordsman">Swordsman</option>
-          <option value="Close fighter">Close fighter</option>
-        </select>
+  <label>Address:
+    <input #clientAddress />
   </label>
 
-  <button (click)="add(heroName.value, heroSkill.value)">
-    add
-  </button>
+  <br>
+  
+  <label>Postal Code:
+    <input #clientPostal />
+  </label>
+
+  <br>
+  
+  <label>Phone Mark:
+    <input #clientMark />
+  </label>
+
+  <br>
+  
+  <label>Operator:
+      <input #clientOperator />
+  </label>
 </div>
 
+<button (click)="add(clientName.value, clientAddress.value, clientPostal.value, clientMark.value, clientOperator.value)">
+    add
+</button>
+
 <div class="List">
-  <ul class="heroes">
-    <li *ngFor="let hero of heroes">
-
-      <a routerLink="/detail/{{hero.id}}">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <ul class="Clients">
+    <li *ngFor="let client of clients">
+  
+      <a routerLink="/detail/{{client.num_processo}}">
+        <span class="badge">{{client.num_processo}}</span> {{client.name}}
       </a>
-
-      <button class="delete" title="delete hero"
-        (click)="delete(hero)">x</button>
+  
+      <button class="delete" title="delete client"
+        (click)="delete(client)">x</button>
     </li>
   </ul>
 </div>
