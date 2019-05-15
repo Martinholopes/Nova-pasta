@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../client';
+
+import { ClientService } from '../clients.service';
 
 @Component({
   selector: 'app-clients',
@@ -6,39 +9,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
-  heroes: Hero[];
+  clients: Client[];
   
-  constructor(private heroService: HeroService) { }
+  constructor(private clientService: ClientService) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getClients();
   }
   
-  getHeroes(): void {
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+  getClients(): void {
+    this.clientService.getClients()
+    .subscribe(clients => this.clients = clients);
   }
 
-  add(name: string, skill: string) : void {
+  add(name: string, morada: string, cod_postal: number, marca: string, operadora: string) : void {
 
     name = name.trim();
+    morada = morada.trim();
+    marca = marca.trim();
+    operadora = operadora.trim();
 
-    const newHero: Hero = {
-      id: this.heroes.length > 0 ? Math.max(...this.heroes.map(hero => hero.id)) + 1 : 11,
+    const newClient: Client = {
+      num_processo: this.clients.length > 0 ? Math.max(...this.clients.map(hero => hero.num_processo)) + 1 : 11,
       name: name,
-      Skill: skill
+      morada: morada,
+      cod_postal: cod_postal,
+      marca: marca,
+      operadora: operadora,
     };
 
     if (!name) { return; } 
-    this.heroService.addHero(newHero as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
+    this.clientService.addClient(newClient as Client)
+      .subscribe(client => {
+        this.clients.push(client);
       });
   }
  
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+  delete(client: Client): void {
+    this.clients = this.clients.filter(h => h !== client);
+    this.clientService.deleteClient(client).subscribe();
   }
  
 }
