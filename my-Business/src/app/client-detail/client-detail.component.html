@@ -1,3 +1,36 @@
-<p>
-  client-detail works!
-</p>
+<div *ngIf="client">
+    <h2>{{client.name | uppercase}} Details</h2>
+      
+    <div><span>Process number: </span>{{client.num_processo}} </div>
+    
+    <div>
+      <label>Name:
+        <input [(ngModel)]="client.name" placeholder="Name"/>
+      </label>
+      
+      <br>
+  
+      <label>Address:
+        <input [(ngModel)]="client.morada" placeholder="Address"/>
+      </label>
+
+      <label>Postal Code:
+          <input [(ngModel)]="client.cod_postal" placeholder="Postal Code"/>
+        </label>
+        
+        <br>
+    
+        <label>Phone Mark:
+          <input [(ngModel)]="client.marca" placeholder="Phone Mark"/>
+        </label>
+    
+        <label>Operator:
+            <input [(ngModel)]="client.operadora" placeholder="Operator"/>
+          </label>
+    </div>
+
+          
+    <button (click)="goBack()">Go back</button> 
+    <button (click)="save()">Save</button>
+    
+  </div>

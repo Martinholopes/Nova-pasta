@@ -30,6 +30,40 @@ export class ClientService {
       );
   }
 
+  /** GET client by id. Will 404 if id not found */
+  getClient(id: number): Observable<Client> {
+    const url = `${this.clientUrl}/${id}`;
+    return this.http.get<Client>(url).pipe(
+      tap(_ => this.log(`fetched Process number=${id}`)),
+      catchError(this.handleError<Client>(`getClient Process number=${id}`))
+    );
+  }
+
+  getHeroNo404<Data>(num_processo: number): Observable<Client> {
+    const url = `${this.clientUrl}/?num_processo=${num_processo}`;
+    return this.http.get<Client[]>(url)
+      .pipe(
+        map(clients => clients[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} client Process number=${num_processo}`);
+        }),
+        catchError(this.handleError<Client>(`getClient Process number=${num_processo}`))
+      );
+  }
+
+  /* GET client whose name contains search term */
+  searchClients(term: string): Observable<Client[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Client[]>(`${this.clientUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found clients matching "${term}"`)),
+      catchError(this.handleError<Client[]>('searchClients', []))
+    );
+  }
+
   /** Add a new client to the server */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.clientUrl, client, httpOptions).pipe(
