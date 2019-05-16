@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
     operadora = operadora.trim();
 
     const newClient: Client = {
-      num_processo: this.clients.length > 0 ? Math.max(...this.clients.map(hero => hero.num_processo)) + 1 : 11,
+      id: this.clients.length > 0 ? Math.max(...this.clients.map(client => client.id)) + 1 : 11,
       name: name,
       morada: morada,
       cod_postal: cod_postal,
