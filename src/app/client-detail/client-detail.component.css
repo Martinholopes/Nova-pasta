@@ -39,3 +39,8 @@ h2{
     color: #ccc;
     cursor: auto;
   }
+
+  hr{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }

@@ -1,61 +1,62 @@
-<hr/>
+<div class="add">
+  <h2>Add a Clients</h2>
 
-<h2>Add a Clients</h2>
-
-<div>
-  <p>
-    <label>Client name:
-    <input #clientName />
-  </label>
-  </p>
-
-  <p>
-    <label>Address:   
-    <input #clientAddress />
-  </label>
-  </p>
-  
-  
-  <label>Postal Code:
-    <input #clientPostal />
-  </label>
-  
-  <p>
-    <label>Phone Mark:
-      <input #clientMark />
+  <div>
+    <p>
+      <label>Client name:
+      <input #clientName />
     </label>
-  </p>
-  
-  <p>
-    <label>Operator:
-        <input #clientOperator />
+    </p>
+
+    <p>
+      <label>Address:   
+      <input #clientAddress />
     </label>
-  </p>
+    </p>
+    
+    
+    <label>Postal Code:
+      <input #clientPostal />
+    </label>
+    
+    <p>
+      <label>Phone Mark:
+        <input #clientMark />
+      </label>
+    </p>
+    
+    <p>
+      <label>Operator:
+          <input #clientOperator />
+      </label>
+    </p>
+  </div>
+
+  <button (click)="add(clientName.value, clientAddress.value, clientPostal.value, clientMark.value, clientOperator.value)">
+      add
+  </button>
+
 </div>
 
-<button (click)="add(clientName.value, clientAddress.value, clientPostal.value, clientMark.value, clientOperator.value)">
-    add
-</button>
+<div>
+  <h2>List of Clients</h2>
 
-<hr/>
+  <div class="List">
+    <ul class="Clients">
+      <li *ngFor="let client of clients" >
+      
+        <a routerLink="/detail/{{client.id}}">
+          <span class="badge">{{client.id}}</span> {{client.name}}
+        </a>
+      
+        <button class="delete" title="delete client"
+          (click)="delete(client)">x</button>
+      </li>
+    </ul>
+  </div>
 
-<h2>List of Clients</h2>
-
-
-<ul class="Clients">
-  <li *ngFor="let client of clients" >
-  
-    <a routerLink="/detail/{{client.id}}">
-      <span class="badge">{{client.id}}</span> {{client.name}}
-    </a>
-  
-    <button class="delete" title="delete client"
-      (click)="delete(client)">x</button>
-  </li>
-</ul>
-
-
-<hr/>
+  <hr/>
+</div>
 
 <app-messages></app-messages>
 <router-outlet></router-outlet>

@@ -5,7 +5,12 @@
 }
 
 h2{
-  color: rgba(207, 42, 21, 0.877);
+  color: rgba(207, 42, 21, 0.877);;
+  font-family: Cambria Math;
+}
+
+.add h2{
+  color: white;
   font-family: Cambria Math;
 }
 
@@ -66,10 +71,22 @@ h2{
 }
 a{
   width: 20%;
-  
 }
 
 .List{
   margin-top: 2%; 
   margin-left: 40%;
+}
+
+
+hr{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.add{
+  padding-top: 2%; 
+  padding-bottom: 2%;
+  background-color: rgba(0, 0, 0, 0.644);
+  color: white;
 }
