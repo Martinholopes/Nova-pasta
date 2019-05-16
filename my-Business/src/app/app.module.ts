@@ -12,13 +12,15 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { MessagesComponent } from './messages/messages.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { OperatorComponent } from './operator/operator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientsComponent,
     MessagesComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    OperatorComponent
   ],
   imports: [
     BrowserModule,
