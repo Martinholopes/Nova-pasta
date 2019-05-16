@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Client } from './client';
+import { Client } from './models/client';
+import { ClientOperator } from './models/client-operator';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,30 @@ export class InMemoryDataService {
       { id: 10, name: 'Alex', morada:'Sintra', cod_postal: 2710, marca: 'Samsung', operadora:'Nos'},
       { id: 11, name: 'Joao', morada:'Ericeira', cod_postal: 2655, marca: 'Samsung', operadora:'Uzo'}
     ];
-    return {clients};
+
+    const Operator = [
+      {id: 1, name: 'Meo', client: 'Suri'},
+      {id: 2, name: 'Meo', client: 'Estatua'},
+      {id: 3, name: 'Meo', client: 'Lula'},
+      {id: 4, name: 'Nos', client: 'Piquenino'},
+      {id: 5, name: 'Nos', client: 'Stonas'},
+      {id: 6, name: 'Nos', client: 'Caseiro'},
+      {id: 7, name: 'Nos', client: 'Alex'},
+      {id: 8, name: 'Vodafone', client: 'Rodas'},
+      {id: 9, name: 'Vodafone', client: 'Moura'},
+      {id: 10, name: 'Vodafone', client: 'Rui'},
+      {id: 11, name: 'Uzo', client: 'Joao'},
+    ]
+
+    return {clients, Operator};
   }
 
-  genId(clients: Client[]): number {
+  genIdClient(clients: Client[]): number {
     return clients.length > 0 ? Math.max(...clients.map(client => client.id)) + 1 : 11;
   }
+
+  genIdOperator(clientoperator: ClientOperator[]): number {
+    return clientoperator.length > 0 ? Math.max(...clientoperator.map(clientoperator => clientoperator.id)) + 1 : 11;
+  }
+
 }

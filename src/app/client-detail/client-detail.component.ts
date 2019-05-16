@@ -1,10 +1,10 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { Client } from '../client';
+import { Client } from '../models/client';
 
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { ClientService }  from '../clients.service';
+import { ClientService }  from '../service/clients.service';
 
 @Component({
   selector: 'app-client-detail',

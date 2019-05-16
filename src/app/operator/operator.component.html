@@ -1,0 +1,20 @@
+<br>
+
+<h2>Operator</h2>
+
+<div style="text-align: center">
+  <div class="grid grid-pad">
+    <a *ngFor = "let clientoperator of ClientOperator" (click)="selectedOperator('ClientOperator.name')">selectedOperator.name></a>
+  </div>
+
+</div>
+
+
+<div *ngIf="selectOperator !== ''">
+  <div class= List *ngFor="let clientoperator of filteredOperator">
+    <a routerLink="/detail/{{ClientOperator.client}}">
+      {{ClientOperator.client}}
+    </a>
+  
+  </div>
+</div>
