@@ -41,19 +41,19 @@
 
 <h2>List of Clients</h2>
 
-
-<ul class="Clients">
-  <li *ngFor="let client of clients">
-  
-    <a routerLink="/detail/{{client.num_processo}}">
-      <span class="badge">{{client.num_processo}}</span> {{client.name}}
-    </a>
-  
-    <button class="delete" title="delete client"
-      (click)="delete(client)">x</button>
-  </li>
-</ul>
-
+<div class="List">
+  <ul class="Clients">
+    <li *ngFor="let client of clients" >
+    
+      <a routerLink="/detail/{{client.id}}">
+        <span class="badge">{{client.id}}</span> {{client.name}}
+      </a>
+    
+      <button class="delete" title="delete client"
+        (click)="delete(client)">x</button>
+    </li>
+  </ul>
+</div>
 
 <hr/>
 

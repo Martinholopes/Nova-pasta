@@ -1,5 +1,5 @@
 export class Client {
-    num_processo: number;
+    id: number;
     name: string;
     morada: string;
     cod_postal: number;

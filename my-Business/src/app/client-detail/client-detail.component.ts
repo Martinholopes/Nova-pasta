@@ -12,7 +12,7 @@ import { ClientService }  from '../clients.service';
   styleUrls: ['./client-detail.component.css']
 })
 export class ClientDetailComponent implements OnInit {
-  @Input() client: Client;
+  client: Client;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,9 +24,9 @@ export class ClientDetailComponent implements OnInit {
   }
 
   getClient(): void {
-    const id = +this.route.snapshot.paramMap.get('num_processo');
-    this.ClientService.getClient(this.client.num_processo)
-      .subscribe(client => this.client === client);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.ClientService.getClient(id)
+      .subscribe(client => this.client = client);
   }
   
   goBack(): void {

@@ -39,23 +39,23 @@ export class ClientService {
     );
   }
 
-  getHeroNo404<Data>(num_processo: number): Observable<Client> {
-    const url = `${this.clientUrl}/?num_processo=${num_processo}`;
+  getClientNo404<Data>(id: number): Observable<Client> {
+    const url = `${this.clientUrl}/?id=${id}`;
     return this.http.get<Client[]>(url)
       .pipe(
         map(clients => clients[0]), // returns a {0|1} element array
         tap(h => {
           const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} client Process number=${num_processo}`);
+          this.log(`${outcome} client Process number=${id}`);
         }),
-        catchError(this.handleError<Client>(`getClient Process number=${num_processo}`))
+        catchError(this.handleError<Client>(`getClient Process number=${id}`))
       );
   }
 
   /* GET client whose name contains search term */
   searchClients(term: string): Observable<Client[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty client array.
       return of([]);
     }
     return this.http.get<Client[]>(`${this.clientUrl}/?name=${term}`).pipe(
@@ -67,25 +67,25 @@ export class ClientService {
   /** Add a new client to the server */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.clientUrl, client, httpOptions).pipe(
-      tap((newClient: Client) => this.log(`added client w/ num_processo=${newClient.num_processo}`)),
+      tap((newClient: Client) => this.log(`added client w/ id=${newClient.id}`)),
       catchError(this.handleError<Client>('addClient'))
     );
   }
 
   /*DELETE */
-  deleteClient (hero: Client | number): Observable<Client> {
-    const id = typeof hero === 'number' ? hero : hero.num_processo;
+  deleteClient (client: Client | number): Observable<Client> {
+    const id = typeof client === 'number' ? client : client.id;
     const url = `${this.clientUrl}/${id}`;
 
     return this.http.delete<Client>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted client num_processo=${id}`)),
+      tap(_ => this.log(`deleted client id=${id}`)),
       catchError(this.handleError<Client>('deleteClient'))
     );
   }
 
   updateClient (client: Client): Observable<any> {
     return this.http.put(this.clientUrl, client, httpOptions).pipe(
-      tap(_ => this.log(`updated client id=${client.num_processo}`)),
+      tap(_ => this.log(`updated client id=${client.id}`)),
       catchError(this.handleError<any>('updateClient'))
     );
   }
