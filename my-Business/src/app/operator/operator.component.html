@@ -1,19 +1,23 @@
-<br>
+<div class= "operator">
+  <h2>Operator</h2>
 
-<h2>Operator</h2>
-
-<div style="text-align: center">
+  <div style="text-align: center">
   <div class="grid grid-pad">
-    <a *ngFor = "let clientoperator of ClientOperator" (click)="selectedOperator('ClientOperator.name')">selectedOperator.name></a>
+    <a *ngFor = "let client of operator" (click)="selectOperators('operator.name')" class="col-1-4" >{{client.name}}</a>
   </div>
+</div>
 
 </div>
 
 
-<div *ngIf="selectOperator !== ''">
-  <div class= List *ngFor="let clientoperator of filteredOperator">
-    <a routerLink="/detail/{{ClientOperator.client}}">
-      {{ClientOperator.client}}
+<br><br><br><br><br><br><br>
+<hr/>
+
+
+<div *ngIf="selectedOperator !== ''">
+  <div class= List *ngFor="let client of filteredOperator">
+    <a routerLink="/detail/{{hero.id}}">
+      {{client.name}}
     </a>
   
   </div>
