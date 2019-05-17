@@ -13,6 +13,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { OperatorComponent } from './operator/operator.component';
+import { AcessoriosComponent } from './acessorios/acessorios.component';
+import { AcessoriosDetailComponent } from './acessorios-detail/acessorios-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { OperatorComponent } from './operator/operator.component';
     ClientsComponent,
     MessagesComponent,
     ClientDetailComponent,
-    OperatorComponent
+    OperatorComponent,
+    AcessoriosComponent,
+    AcessoriosDetailComponent
   ],
   imports: [
     BrowserModule,

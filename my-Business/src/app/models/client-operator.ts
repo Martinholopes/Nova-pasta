@@ -1,5 +1,4 @@
-export class ClientOperator {
+export class Operator {
     id: number;
     name: string;
-    client: string;
 }

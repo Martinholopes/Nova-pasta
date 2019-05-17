@@ -1,0 +1,18 @@
+<div>
+  <h2>Lista de Acessorios</h2>
+
+  <div class="List">
+    <ul class = "Accessory">
+      <li *ngFor = "let acessorio of acessorios">
+
+        <a routerLink = "/acessorios/{{acessorio.id}}">
+          <span class = "badge">{{acessorio.id}}</span> {{acessorio.name}}
+        </a>
+
+      </li>
+    </ul>  
+  </div>
+
+
+<app-messages></app-messages>
+<router-outlet></router-outlet>   
