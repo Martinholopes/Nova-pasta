@@ -3,8 +3,11 @@
 <h2>Operator</h2>
 
 <div style="text-align: center">
-  <div class="grid grid-pad">
-    <a *ngFor = "let clientoperator of ClientOperator" (click)="selectedOperator('ClientOperator.name')">selectedOperator.name></a>
+  <div class="grid grid-pad" *ngFor = "let clientoperator of ClientOperator">
+    <p>ola</p>
+    <a routerLink="{{ClientOperator.name}}">
+      {{ClientOperator.name}}
+    </a>
   </div>
 
 </div>
