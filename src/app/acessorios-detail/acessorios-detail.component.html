@@ -1,0 +1,30 @@
+<div *ngIf = "acessorios">  
+  <h2>{{acessorios.name | uppercase}} Details</h2>
+
+  <div><span>ID: </span>{{acessorios.id}} </div>
+
+  <div>
+    <label>Name:
+      <input [(ngModel)] = "acessorios.name" placeholder = "Name">
+    </label>
+    
+    <br>
+
+    <label>Color:
+      <input [(ngModel)] = "acessorios.color" placeholder = "Color">
+    </label>
+  
+    <br>
+
+    <label>Device:
+      <input [(ngModel)] = "acessorios.device" placeholder = "Device">
+    </label>
+  </div>
+
+  <button (click)="goBack()">Go back</button>
+
+  <hr/>
+
+  <app-messages></app-messages>
+</div>
+

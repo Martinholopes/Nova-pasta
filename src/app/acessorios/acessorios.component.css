@@ -1,0 +1,80 @@
+/* HeroesComponent's private CSS styles */
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+  }
+  
+  h2{
+    color: rgba(207, 42, 21, 0.877);
+    font-family: Cambria Math;
+  }
+  
+  .Accessory a {
+    color: #888;
+    text-decoration: none;
+    position: relative;
+  }
+   
+  .Accessory a:hover {
+    color:#607D8B;
+  }
+  
+  .Accessory {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .Accessory li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .Accessory li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .Accessory li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+  .Accessory .text {
+    position: relative;
+    top: -3px;
+  }
+  .Accessory .badge {
+    display: inline-block;
+    font-size: small;
+    font-family: Cambria Math;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: rgba(207, 42, 21, 0.877);
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+    
+  }
+  a{
+    width: 20%;
+  }
+  
+  .List{
+    margin-top: 2%; 
+    margin-left: 40%;
+  }
+  
+  
+  hr{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
