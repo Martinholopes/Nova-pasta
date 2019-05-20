@@ -1,8 +1,10 @@
 .operator{
-  padding-top: 2%; 
-  padding-bottom: 2%;
-  background-color: rgba(0, 0, 0, 0.644);
-  color: white;
+  padding-top: 1px; 
+  padding-bottom: 128px;
+  color: rgba(207, 42, 21, 0.877);
+  font-family: Cambria Math;
+  text-align: center;
+  margin-bottom: 2;
 }
 
 [class*='col-'] {
@@ -21,32 +23,27 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-h2 {
-  color: rgba(207, 42, 21, 0.877);
-  font-family: Cambria Math;
-  text-align: center;
-  margin-bottom: 2;
-}
+
 h4 {
   position: relative;
 }
 
 .col-1-4 {
-  margin: 2%;
-  width: 20%;
+  margin: 1%;
+  width: 20px;
   padding: 10px;
   text-align: center;
-  color: #eee;
-  max-height: 120px;
-  min-width: 120px;
-  background-color: hsl(0, 62%, 45%);
+  color: white;
+  background-color: rgba(207, 42, 21, 0.877);
+  max-height: 20%;
+  min-width: 20%;
   border-radius: 2px;
 }
 
 .col-1-4:hover {
-  background: #eee;
+  background: white;
   cursor: pointer;
-  color: hsl(0, 62%, 45%);
+  color: rgba(207, 42, 21, 0.877);
 }
 
 .grid-pad > [class*='col-']:last-of-type {
@@ -65,3 +62,4 @@ h4 {
     min-width: 60px;
   }
 }
+
