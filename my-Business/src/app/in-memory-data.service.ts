@@ -56,7 +56,11 @@ export class InMemoryDataService {
   }
 
   genIdOperator(operator: Operator[]): number {
-    return operator.length > 0 ? Math.max(...operator.map(operator => operator.id)) + 1 : 11;
+    return operator.length > 0 ? Math.max(...operator.map(operator => operator.id)) + 1 : 4;
+  }
+
+  genIdAcessorio(accessory: Acessorio[]): number {
+    return accessory.length > 0 ? Math.max(...accessory.map(accessory => accessory.id)) : 14;
   }
 
 }

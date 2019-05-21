@@ -31,6 +31,7 @@ h2{
   width: 15em;
 }
 .Clients li {
+  text-align: left;
   cursor: pointer;
   position: relative;
   left: 0;
@@ -75,7 +76,7 @@ a{
 
 .List{
   margin-top: 2%; 
-  margin-left: 40%;
+  margin-left: 45%;
 }
 
 
@@ -92,6 +93,7 @@ hr{
 }
 
 button {
+  margin-left: 20px;
   margin-top: 5px;
   font-family: Arial;
   background-color: #eee;

@@ -27,6 +27,7 @@
   }
   .Accessory li {
     cursor: pointer;
+    text-align: left;
     position: relative;
     left: 0;
     background-color: #EEE;
@@ -70,7 +71,7 @@
   
   .List{
     margin-top: 2%; 
-    margin-left: 40%;
+    margin-left: 45%;
   }
   
   

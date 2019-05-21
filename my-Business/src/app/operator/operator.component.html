@@ -4,7 +4,11 @@
 
   <div style="text-align: center">
     <div class="grid grid-pad">
-      <a *ngFor = "let client of operator" (click)="selectOperators('operator.name')" class="col-1-4" >{{client.name}}</a>
+      <a *ngFor = "let client of operator" 
+        (click)= "selectOperators('operator.name')" 
+        class="col-1-4">
+        {{client.name}}
+      </a>
     </div>
   </div>
 
@@ -16,7 +20,7 @@
 
 <div *ngIf="selectedOperator !== ''">
   <div class= List *ngFor="let client of filteredOperator">
-    <a routerLink="/detail/{{hero.id}}">
+    <a routerLink="/detail/{{client.id}}">
       {{client.name}}
     </a>
   

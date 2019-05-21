@@ -17,6 +17,7 @@ import { AcessoriosComponent } from './acessorios/acessorios.component';
 import { AcessoriosDetailComponent } from './acessorios-detail/acessorios-detail.component';
 import { CitiesComponent } from './cities/cities.component';
 import { HomeComponent } from './home/home.component';
+import { AcessorySearchComponent } from './acessory-search/acessory-search.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,10 @@ import { HomeComponent } from './home/home.component';
     AcessoriosComponent,
     AcessoriosDetailComponent,
     CitiesComponent,
-    HomeComponent
+    HomeComponent,
+    AcessorySearchComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,6 +40,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Client } from '../models/client';
+import { Operator } from '../models/client-operator';
 
 import { ClientService } from '../service/clients.service';
+import { OperatorService } from '../service/operator.service';
+
+
 
 @Component({
   selector: 'app-clients',
@@ -10,8 +15,12 @@ import { ClientService } from '../service/clients.service';
 })
 export class ClientsComponent implements OnInit {
   clients: Client[];
+  operators: Operator[];
   
-  constructor(private clientService: ClientService) { }
+  constructor(
+    private clientService: ClientService,
+    private operatorService: OperatorService,
+    ) { }
 
   ngOnInit() {
     this.getClients();
@@ -39,10 +48,21 @@ export class ClientsComponent implements OnInit {
     };
 
     if (!name) { return; } 
-    this.clientService.addClient(newClient as Client)
-      .subscribe(client => {
-        this.clients.push(client);
-      });
+      this.clientService.addClient(newClient as Client)
+        .subscribe(client => {
+          this.clients.push(client);
+    });
+
+    const newOperator: Operator = {
+      id: this.operators.length > 0 ? Math.max(...this.operators.map(operators => operators.id)) + 1 : 4,
+      name: name,
+    };
+
+    if (!name) { return; } 
+      this.operatorService.addOperator(newOperator as Operator)
+        .subscribe(operator => {
+          this.operators.push(operator);
+    });
   }
  
   delete(client: Client): void {
