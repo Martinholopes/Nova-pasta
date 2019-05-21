@@ -83,10 +83,19 @@
     margin-top: 2%;
     margin-bottom: 2%;
   }
+
+  button {
+    margin-top: 20px;
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
   
-  .add{
-    padding-top: 2%; 
-    padding-bottom: 2%;
-    background-color: rgba(0, 0, 0, 0.644);
+  button:hover {
+    background-color:rgba(207, 42, 21, 0.877);
     color: white;
   }
