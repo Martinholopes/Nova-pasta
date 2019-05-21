@@ -7,6 +7,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Acessorio } from '../models/accessory';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,13 +30,24 @@ export class AcessoriosService {
         catchError(this.handleError<Acessorio[]>('getAccessory', []))
       );
   }
-
+  
   /** GET client by id. Will 404 if id not found */
   getAcessorio(id: number): Observable<Acessorio> {
     const url = `${this.accessoryUrl}/${id}`;
     return this.http.get<Acessorio>(url).pipe(
       tap(_ => this.log(`fetched ID=${id}`)),
       catchError(this.handleError<Acessorio>(`getClient id=${id}`))
+    );
+  }
+
+  searchAcessory(term: string): Observable<Acessorio[]> {
+    if(!term.trim()){
+
+        return of([]);
+    }
+    return this.http.get<Acessorio[]>(`${this.accessoryUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found acessory matching "${term}"`)),
+      catchError(this.handleError<Acessorio[]>('searchAcessory', []))
     );
   }
 

@@ -52,18 +52,6 @@ export class ClientService {
       );
   }
 
-  /* GET client whose name contains search term */
-  searchClients(term: string): Observable<Client[]> {
-    if (!term.trim()) {
-      // if not search term, return empty client array.
-      return of([]);
-    }
-    return this.http.get<Client[]>(`${this.clientUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found clients matching "${term}"`)),
-      catchError(this.handleError<Client[]>('searchClients', []))
-    );
-  }
-
   /** Add a new client to the server */
   addClient (client: Client): Observable<Client> {
     return this.http.post<Client>(this.clientUrl, client, httpOptions).pipe(

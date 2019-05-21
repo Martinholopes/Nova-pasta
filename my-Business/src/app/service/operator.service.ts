@@ -38,10 +38,10 @@ export class OperatorService {
     );
   }
 
-  updateClient (client: Operator): Observable<any> {
-    return this.http.put(this.operatorUrl, client, httpOptions).pipe(
-      tap(_ => this.log(`updated client id=${client.id}`)),
-      catchError(this.handleError<any>('updateClient'))
+  updateOperator (operator: Operator): Observable<any> {
+    return this.http.put(this.operatorUrl, operator, httpOptions).pipe(
+      tap(_ => this.log(`updated operator id=${operator.id}`)),
+      catchError(this.handleError<any>('updateOperator'))
     );
   }
 
