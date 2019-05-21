@@ -14,7 +14,7 @@ import { Client } from '../models/client';
 })
 
 export class OperatorComponent implements OnInit {
-  operator: Operator[] = [];
+  operators: Operator[] = [];
   clients: Client[] = [];
   filteredClient: Client[] = [];
   selectedOperator = ''
@@ -31,7 +31,7 @@ export class OperatorComponent implements OnInit {
 
   getOperators(): void {
     this.OperatorService.getOperators()
-      .subscribe(response => this.operator = response);
+      .subscribe(response => this.operators = response);
   }
 
   getClients(): void {
@@ -39,7 +39,8 @@ export class OperatorComponent implements OnInit {
       .subscribe(response => this.clients = response);
   }
 
-  getOperator(name) {
+  selectOperator(name) {
+    console.log(name);
     this.selectedOperator = name;
     this.filteredClient = this.clients.filter(clients => {
       return clients.operadora === this.selectedOperator;
