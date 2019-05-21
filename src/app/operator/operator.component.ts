@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OperatorService } from '../service/operator.service';
-import { ClientOperator } from '../models/client-operator';
+import { ClientService } from '../service/clients.service';
+
+import { Operator } from '../models/client-operator';
+import { Client } from '../models/client';
 
 
 @Component({
@@ -11,25 +14,35 @@ import { ClientOperator } from '../models/client-operator';
 })
 
 export class OperatorComponent implements OnInit {
-  clientoperator: ClientOperator[] = [];
-  filteredOperator: ClientOperator[] = [];
+  operator: Operator[] = [];
+  client: Client[] = [];
+  filteredClient: Client[] = [];
   selectedOperator = ''
 
-  constructor(private OperatorService: OperatorService) { }
+  constructor(
+    private OperatorService: OperatorService,
+    private ClientService: ClientService,
+    ) { }
 
   ngOnInit() {
-    this.getOperator();
+    this.getOperators();
+    this.getClients();
   }
 
-  getOperator(): void {
-    this.OperatorService.getOperator()
-      .subscribe(response => this.clientoperator = response);
+  getOperators(): void {
+    this.OperatorService.getOperators()
+      .subscribe(response => this.operator = response);
   }
 
-  selectOperator(name) {
+  getClients(): void {
+    this.ClientService.getClients()
+      .subscribe(response => this.client = response);
+  }
+
+  getClient(name) {
     this.selectedOperator = name;
-    this.filteredOperator = this.clientoperator.filter(clientoperator => {
-      return clientoperator.name === this.selectedOperator;
+    this.filteredClient = this.client.filter(client => {
+      return client.operadora === this.selectedOperator;
     });
   }
 }
