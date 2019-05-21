@@ -15,6 +15,8 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { OperatorComponent } from './operator/operator.component';
 import { AcessoriosComponent } from './acessorios/acessorios.component';
 import { AcessoriosDetailComponent } from './acessorios-detail/acessorios-detail.component';
+import { CitiesComponent } from './cities/cities.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AcessoriosDetailComponent } from './acessorios-detail/acessorios-detail
     ClientDetailComponent,
     OperatorComponent,
     AcessoriosComponent,
-    AcessoriosDetailComponent
+    AcessoriosDetailComponent,
+    CitiesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

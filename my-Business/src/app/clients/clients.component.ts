@@ -22,17 +22,17 @@ export class ClientsComponent implements OnInit {
     .subscribe(clients => this.clients = clients);
   }
 
-  add(name: string, morada: string, cod_postal: number, marca: string, operadora: string) : void {
+  add(name: string, home: string, cod_postal: number, marca: string, operadora: string) : void {
 
     name = name.trim();
-    morada = morada.trim();
+    home = home.trim();
     marca = marca.trim();
     operadora = operadora.trim();
 
     const newClient: Client = {
       id: this.clients.length > 0 ? Math.max(...this.clients.map(client => client.id)) + 1 : 11,
       name: name,
-      morada: morada,
+      home: home,
       cod_postal: cod_postal,
       marca: marca,
       operadora: operadora,

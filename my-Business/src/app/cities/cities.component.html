@@ -1,0 +1,25 @@
+<hr />
+
+<h2>Lista de Localidades dos Clientes</h2>
+
+<select #selectedHome (change) = "onHomeSelction(selectedHome.value)">
+    <option *ngFor = "let client of clients" [value] = "client.home">
+    {{client.home}} 
+  </option>
+</select>
+
+<div class="grid grid-pad">
+  <a class = "selectedHome" routerLink = ""></a>
+  <a *ngFor="let client of filteredClient" class="col-1-4" 
+      routerLink="/detail/{{client.id}}">
+      <div class="module client">
+        <h4>{{client.name}}</h4>
+        <h4>{{client.home}}</h4>
+      </div>
+  </a>
+</div>
+
+<hr />
+
+<app-messages></app-messages>
+<router-outlet></router-outlet>
