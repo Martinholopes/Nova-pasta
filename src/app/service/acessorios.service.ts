@@ -27,6 +27,17 @@ export class AcessoriosService {
       );
   }
 
+  searchAcessory(term: string): Observable<Acessorio[]> {
+    if(!term.trim()){
+
+        return of([]);
+    }
+    return this.http.get<Acessorio[]>(`${this.accessoryUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found acessory matching "${term}"`)),
+      catchError(this.handleError<Acessorio[]>('searchAcessory', []))
+    );
+  }
+
   /** GET client by id. Will 404 if id not found */
   getAcessorio(id: number): Observable<Acessorio> {
     const url = `${this.accessoryUrl}/${id}`;
@@ -62,4 +73,3 @@ export class AcessoriosService {
     this.messageService.add(`AccessorryService: ${message}`);
   }
 }
-

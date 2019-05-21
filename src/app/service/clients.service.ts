@@ -72,6 +72,15 @@ export class ClientService {
     );
   }
 
+  
+  gethome(): Observable<Client[]> {
+    return this.http.get<Client[]>(this.clientUrl)
+    .pipe(
+      tap(_ => this.log('fetched home')),
+      catchError(this.handleError<Client[]>('gethome', []))
+    );
+  }
+
   /*DELETE */
   deleteClient (client: Client | number): Observable<Client> {
     const id = typeof client === 'number' ? client : client.id;
